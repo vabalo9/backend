@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+
 class ProductManager {
   constructor(path) {
     this.products = [];
@@ -27,7 +28,7 @@ class ProductManager {
     if (productoBuscado !== undefined) {
       return productoBuscado;
     } else {
-      return "Not Found";
+      return {error: "El producto no existe"};
     }
   }
 
@@ -79,34 +80,12 @@ class ProductManager {
     if (prueba.length < evaluacion) {
       console.log("Producto eliminado correctamente")
     }else{
-      console.log("Por algun motivo no se pudo mencionar el producto solicitado")
+      console.log("Por algun motivo no se pudo eliminar el producto solicitado")
     }
   }
 }
 
-const Manager = new ProductManager('product.json');
+
+module.exports = ProductManager;
 
 
-
-(async () => {
-  
-
-
-// await Manager.getProducts()
-// await Manager.addProduct("producto prueba", "Este es un producto prueba", 200, "Sin imagen", "abc123", 25)
-// await Manager.addProduct("producto 1", "Este es un producto prueba", 300, "Sin imagen", "abc2", 25);
-// await Manager.addProduct("producto 2", "Este es un producto prueba", 400, "Sin imagen", "abc3", 25);
-// await Manager.addProduct("producto 3", "Este es un producto prueba", 400, "Sin imagen", "abc4", 25);
-// await Manager.getProducts()
-
-// await Manager.getProductById(1)
-
-// await Manager.updapteProduct(2,5000,27)
-// await Manager.getProducts()
-
-// await Manager.deleteProduct(1)
-
-// await Manager.getProducts()
-
-  
-})();
